@@ -1,0 +1,131 @@
+import java.util.Scanner;
+
+class Candidato {
+    private String Nome;
+    private String Partido;
+    private int quantidadeVotos;
+    
+    public Candidato(String Nome, String Partido){
+        this.Nome = Nome;
+        this.Partido = Partido;
+        this.quantidadeVotos = 0;
+    }
+    
+    public String getNome(){
+        return Nome;
+    }
+    
+    public String getPartido(){
+        return Partido;
+    }
+    
+    public int getQVotos(){
+        return quantidadeVotos;
+    }
+    
+    public void incrementa(){
+        quantidadeVotos +=1;
+    }
+}
+
+class Urna {
+       
+        private Candidato candidato1;
+        private Candidato candidato2;
+        private int tVotos;
+        private int tNulosBrancos;
+        
+        
+        public Urna(Candidato candidato1, Candidato candidato2){
+            this.candidato1 = candidato1;
+            this.candidato2 = candidato2;
+            this.tVotos = 0;
+            this.tNulosBrancos = 0;
+        }
+        
+    public void votar(int voto){
+         tVotos += 1;
+            if(voto == 1){
+                candidato1.incrementa();
+            }else if(voto == 2){
+                candidato2.incrementa();
+            }else if(voto == 3){
+                tNulosBrancos += 1;
+            }else{
+                System.out.println("Voto inválido \nVote novamente!");
+            }
+        }
+        
+        public void exibirTNulosBrancos(){
+            System.out.println("Total de votos Brancos/Nulos " + tNulosBrancos);
+        }
+        
+        public void exibirTVotos(){
+            System.out.println("O total de votos é" + tVotos);
+        }
+        
+        public void exibirCandidato1(){
+            System.out.println("O total de votos do Candidato1 é" + candidato1.getQVotos());
+        }
+        
+        public void exibirCandidato2(){
+            System.out.println("O total de votos do Candidato2 é" + candidato2.getQVotos());
+        }
+        
+        
+    public void exibirVencedor (){
+        if (candidato1.getQVotos() > candidato2.getQVotos()){
+            System.out.println ("O candidato 1 é o vencedor");
+            System.out.println(candidato1.getNome());
+            System.out.println(candidato1.getPartido());
+            System.out.println("total de votos foi: ");
+            System.out.println(candidato1.getQVotos());
+        } 
+        else if (candidato2.getQVotos() > candidato1.getQVotos()){
+             System.out.println ("O candidato 2 é o vencedor");
+             System.out.println(candidato2.getNome());
+            System.out.println(candidato2.getPartido());
+            System.out.println("total de votos foi: ");
+            System.out.println(candidato2.getQVotos());
+        }
+        else {
+            System.out.println ("A eleição deu empate");
+        }
+        
+    }
+    
+    
+}
+        
+ 
+ public class Main{
+
+
+    public static void main (String [] args){
+        Scanner teclado = new Scanner(System.in);
+        int quantidadeVotos = teclado.nextInt();
+        String Nome = teclado.nextLine();
+        Candidato candidato1 = new Candidato("Wagner", "PGI");
+        Candidato candidato2 = new Candidato("João", "PCI");
+    
+    Urna urna = new Urna(candidato1, candidato2);
+        
+    
+    
+    int voto = nextInt();
+    
+        urna.votar();
+    
+    
+    
+    
+        urna.exibirTvotos();
+        urna.exibirTNulosBrancos();
+        urna.exibirCandidato1();
+        urna.exibirCandidato2();
+        urna.exibiVencedor();
+ 
+} 
+}
+       
+       
