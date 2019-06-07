@@ -43,7 +43,7 @@ public double CalcConta(){
 }
 
 public static void main (String [] args){
-    ContaEnergia ce = new ContaEnergia("Paulo Nascimento", 60);
+    ContaEnergia ce = new ContaEnergia("Odaliene Azevêdo", 50);
     System.out.println (ce.getNomeCliente());
     System.out.println (ce.getConsumo());
     System.out.println (ce.CalcConta());
