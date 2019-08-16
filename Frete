@@ -63,13 +63,36 @@ class FreteSuperExpresso extends FreteExpresso{
 
 }
 
-class CadastroFrete{
-    Frete[] vetor = new Frete[10];
+class CadastroFrete  {
+  private int qtd;
+  private  frete[] Fretes;
+  public CadastroFrete(int qtd){
+    this.qtd = 0;
+    this.Fretes = new frete[qtd]; 
+  }
+  public boolean addFrete( frete f){
+    if (qtd <= 10) return false;
     
-    public void calcularFretes(){
-        valorTotal = 0;
-        for(int i = 0; i < 11, i++){
-            
-        }
+      this.Fretes[qtd++] = f;
+      return true;
+    
+  }
+
+  public double calcularFrete(){
+    double total = 0;
+    for (int i = 0; i < Fretes.length; ++i){
+     if (Fretes[i] != null) {
+       total = total + Fretes[i].calcularFrete();
+     }
     }
+
+    return total;
+
+}
+}
+
+public class Main{
+  public static void main(String []args){
+    
+  }
 }
