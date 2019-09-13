@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 abstract class Militar {
   private String patente;
   private int matricula;
@@ -69,26 +72,25 @@ class MilitarMarinha extends Militar {
 
 class CadastroMilitar {
   private int qtd;
-  private  Militar[] militar;
+  private  List<Militar> militar = new ArrayList<Militar>();
   public CadastroMilitar(int qtd){
     this.qtd = 0;
-    this.militar = new Militar[qtd]; 
+    this.militar = new ArrayList<Militar>(); 
   }
 
   public boolean addMilitar( Militar M){
     if (qtd <= 10) return false;
     
-      this.militar[qtd++] = M;
+      this.militar.add(M);
       return true;
   }
-  pustr1blic void militarPodeProgredir(){
+  public void militarPodeProgredir(){
+      public static void main(String[] args) {
+          
     for(int i = 0; i < 10; ++i){
-      if (militar[i] != null){
-        if(militar[i].podeProgredir() == true){
+      if (militar.get(i) != null){
+        if(militar.get(i).podeProgredir() == true){
           System.out.println(militar[i]);
-        }
-      }
-    }
   }
 }
 
